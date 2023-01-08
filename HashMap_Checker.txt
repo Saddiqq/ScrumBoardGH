@@ -1,0 +1,32 @@
+package smartPark;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Array_Checker {
+  public static void main(String[] args) {
+    String[] names = {
+      "Atyab", "Fatima", "Saeed", "Malak", "Fatima", "Daniyal", "Abdullah", "Abdullah"
+    };
+
+    // Create a HashMap to store the names and their counts
+    Map<String, Integer> nameCounts = new HashMap<>();
+
+    // Iterate through the array of names
+    for (String name : names) {
+      // If the name is not in the map, add it with a count of 1
+      if (!nameCounts.containsKey(name)) {
+        nameCounts.put(name, 1);
+      }
+      // If the name is already in the map, increment the count by 1
+      else {
+        nameCounts.put(name, nameCounts.get(name) + 1);
+      }
+    }
+
+    // Print the names and their counts
+    for (Map.Entry<String, Integer> entry : nameCounts.entrySet()) {
+      System.out.println(entry.getKey() + ": " + entry.getValue());
+    }
+  }
+}
