@@ -1,0 +1,40 @@
+package smartPark;
+import java.util.Scanner;
+
+import java.util.Scanner; // import the Scanner class
+
+public class Array_Checker {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in); // create a Scanner object
+
+    int num1; // variable to store the first number
+    int num2; // variable to store the second number
+
+    while (true) { // loop indefinitely
+      // ask the user to input the first number
+      System.out.print("Enter the first number: ");
+      num1 = scanner.nextInt(); // read the first number
+
+      // check if the first number is less than 100
+      if (num1 < 100) {
+        // ask the user to input the second number
+        System.out.print("Enter the second number: ");
+        num2 = scanner.nextInt(); // read the second number
+
+        // check if the second number is less than 100
+        if (num2 < 100) {
+          // both numbers are less than 100, so show them and break out of the loop
+          System.out.println("First number: " + num1);
+          System.out.println("Second number: " + num2);
+          break;
+        } else {
+          // the second number is not less than 100, so display an error and start again
+          System.out.println("Error: The second number must be less than 100.");
+        }
+      } else {
+        // the first number is not less than 100, so display an error and start again
+        System.out.println("Error: The first number must be less than 100.");
+      }
+    }
+  }
+}
