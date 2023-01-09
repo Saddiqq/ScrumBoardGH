@@ -1,0 +1,41 @@
+package smartPark; 
+import java.util.Arrays;
+
+public class Array_Checker {
+    public static void main(String[] args) {
+        int[] input = {0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9,};
+
+        // Create a new empty array to store the result
+        int[] result = new int[input.length];
+
+        // Keep track of the number of unique elements we've seen so far
+        int numUnique = 0;
+
+        // Iterate over the input array
+        for (int i : input) {
+            // Check if the current element is already in the result array
+            boolean isDuplicate = false;
+            for (int j = 0; j < numUnique; j++) {
+                if (i == result[j]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            // If the current element is not a duplicate, add it to the result array
+            if (!isDuplicate) {
+                result[numUnique] = i;
+                numUnique++;
+            }
+        }
+
+        // Trim the result array to the correct size
+        int[] finalResult = Arrays.copyOfRange(result, 0, numUnique);
+
+        // Print the number of elements in the final result array
+        System.out.println("Number of non duplicated elements : " + finalResult.length);
+
+        // Print the final result array
+        System.out.println(Arrays.toString(finalResult));
+    }
+}
