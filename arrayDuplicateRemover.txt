@@ -1,0 +1,43 @@
+package smartPark;
+
+public class Array_Checker {
+
+	// creating the method
+	public static int removeDuplicateElements(int arr[], int n) {
+		// If the length of the array is 0 or 1, there are no duplicates so we can
+		// return the length
+		if (n == 0 || n == 1) {
+			return n;
+		}
+		// Initialize a variable to store the next unique element
+		int j = 0;
+		// Loop through the array
+		for (int i = 0; i < n - 1; i++) {
+			// If the current element is not the same as the next element
+			if (arr[i] != arr[i + 1]) {
+				// Set the value at the next unique element index to the current element
+				arr[j++] = arr[i];
+			}
+		}
+		// Set the last element in the array to the next unique element index
+		arr[j++] = arr[n - 1];
+		// Return the number of unique elements
+		return j;
+	}
+
+	// This is the main method that will execute when the program is run
+	public static void main(String[] args) {
+		// Initialize an array with duplicate elements
+		int arr[] = { 4, 4, 3, 3, 2, 2, 1, 1, 0, 0 };
+		// Get the length of the array
+		int length = arr.length;
+		// Call the method to remove duplicate elements and store the returned length in
+		// the length variable
+		length = removeDuplicateElements(arr, length);
+		// Loop through the array and print each element
+		for (int i = 0; i < length; i++)
+			System.out.print(arr[i] + " ");
+		// Print the number of unique elements
+		System.out.print("-" + length);
+	}
+}
