@@ -1,13 +1,15 @@
-package smartPark; 
+package smartPark;
+
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
 import java.util.Random;
 
 public class Array_Checker {
+
 	public static void main(String[] args) {
-		// Initialize an array with random numbers
+		// Initialize a random number generator
 		Random rand = new Random();
+		// Initialize an array with random numbers
 		int[] array = new int[10];
 		for (int i = 0; i < array.length; i++) {
 			array[i] = rand.nextInt(10);
@@ -26,29 +28,28 @@ public class Array_Checker {
 		}
 		System.out.println("Highest number: " + highest);
 		System.out.println("Second highest number: " + secondHighest);
-		// Find the duplicated number
+		// Sort the array
 		Arrays.sort(array);
-		for (int i = 0; i < array.length - 1; i++) {
-			if (array[i] == array[i + 1]) {
-				System.out.println("Duplicated number: " + array[i]);
-				break;
+		// Create two empty HashSets to store unique and duplicate elements
+		HashSet<Integer> uniqueElements = new HashSet<>();
+		HashSet<Integer> duplicateElements = new HashSet<>();
+
+		// Iterate through the array
+		for (int i = 0; i < array.length; i++) {
+			// Check if the current element is already in the uniqueElements set
+			if (!uniqueElements.contains(array[i])) {
+				// If it's not, add it to the uniqueElements set
+				uniqueElements.add(array[i]);
+			} else {
+				// If it's already in the set, add it to the duplicateElements set
+				duplicateElements.add(array[i]);
 			}
 		}
-		// Find the two numbers that appear only once in the array
-		Map<Integer, Integer> map = new HashMap<>();
-		for (int num : array) {
-			map.put(num, map.getOrDefault(num, 0) + 1);
-		}
-		int[] singleNumbers = new int[2];
-		int index = 0;
-		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-			if (entry.getValue() == 1) {
-				singleNumbers[index++] = entry.getKey();
-				if (index == 2) {
-					break;
-				}
-			}
-		}
-		System.out.println("Two numbers that appear only once in the array: " + Arrays.toString(singleNumbers));
+		// Remove all elements from the uniqueElements set that are also in the
+		// duplicateElements set
+		uniqueElements.removeAll(duplicateElements);
+		// Print out the remaining unique elements
+		System.out.println("Elements that appears only once: " + uniqueElements);
+		System.out.println("Duplicate elements: " + duplicateElements);
 	}
 }
