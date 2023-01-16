@@ -1,0 +1,30 @@
+package smartPark;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Array_Checker {
+
+    public static void main(String[] args) {
+        ArrayList<Integer> nums = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the elements of the array. Enter 'q' to finish.");
+
+        // store the integers in an ArrayList
+        while (scanner.hasNextInt()) {
+            nums.add(scanner.nextInt());
+        }
+
+        System.out.println("The maximum product of the entered integers is: " + MaxProdect(nums));
+    
+    }
+
+    public static int MaxProdect(ArrayList<Integer> nums) {
+        int total = 1;
+        for (int i = 2; i < nums.size(); i++) {
+            total = total * nums.get(i);
+        }
+        return total;
+    }
+}
