@@ -7,9 +7,9 @@ import java.util.Random;
 public class Array_Checker {
 
 	public static void main(String[] args) {
-		// Initialize a random number generator
+
 		Random rand = new Random();
-		// Initialize an array with random numbers
+
 		int[] array = new int[10];
 		for (int i = 0; i < array.length; i++) {
 			array[i] = rand.nextInt(10);
@@ -34,7 +34,7 @@ public class Array_Checker {
 		HashSet<Integer> uniqueElements = new HashSet<>();
 		HashSet<Integer> duplicateElements = new HashSet<>();
 
-		// Iterate through the array
+		// Go through the array
 		for (int i = 0; i < array.length; i++) {
 			// Check if the current element is already in the uniqueElements set
 			if (!uniqueElements.contains(array[i])) {
@@ -45,10 +45,13 @@ public class Array_Checker {
 				duplicateElements.add(array[i]);
 			}
 		}
-		// Remove all elements from the uniqueElements set that are also in the
-		// duplicateElements set
+		/**
+		 *  Remove all elements from the uniqueElements set that are also in the
+		 *   present in the duplicateElements set 
+		 */
+		
 		uniqueElements.removeAll(duplicateElements);
-		// Print out the remaining unique elements
+		// Print out the remaining unique elements 
 		System.out.println("Elements that appears only once: " + uniqueElements);
 		System.out.println("Duplicate elements: " + duplicateElements);
 	}
