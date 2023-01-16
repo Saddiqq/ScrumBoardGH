@@ -1,0 +1,19 @@
+package smartPark;
+
+
+public class Array_Checker {
+
+	    public static void main(String[] args) {
+	        int[] array = {1, 2, 4, 6, 8, 10};
+	        int sum = 10;
+
+	        for (int i = 0; i < array.length; i++) {
+	            for (int j = i + 1; j < array.length; j++) {
+	                if ((array[i] + array[j] == sum) && (array[i] % 2 == 0) && (array[j] % 2 == 0)) {
+	                    System.out.println("Even pair with the total sum of " + sum + ": " + array[i] + ", " + array[j]);
+	                }
+	            }
+	        }
+	    }
+	}
+
