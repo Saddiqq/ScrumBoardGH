@@ -1,0 +1,38 @@
+package smartPark;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Array_Checker {
+
+	while (true);  
+	{ 
+	
+	public static void main(String[] args) {
+		System.out.print("Enter the desired word: ");
+		Scanner sc = new Scanner(System.in);
+		String inputWord = sc.nextLine();
+		
+		// Create an empty stack
+		Stack stackWord = new Stack();
+		
+		// Push each character of the string inside the stack
+		for (int i = 0; i < inputWord.length(); i++) {
+			stackWord.push(inputWord.charAt(i));
+		}
+		
+		// Create a String to store the reversed string
+		String reverseString = "";
+		
+		// remove each character from the stack and add it to the reversed string
+		while (!stackWord.isEmpty()) {
+			reverseString = reverseString + stackWord.pop();
+		}
+		
+		// Compare the original string and the reversed string
+		if (inputWord.equals(reverseString))
+			System.out.println("The input word is a palindrome.");
+		else
+			System.out.println("The input word is not a palindrome.");
+	}
+}
